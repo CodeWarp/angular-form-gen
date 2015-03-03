@@ -56,7 +56,7 @@ gulp.task('test-run', ['angular-form-gen'], function () {
     'bower_components/angular/angular.js',
     'bower_components/angular-mocks/angular-mocks.js',
     'bower_components/lodash/dist/lodash.compat.js',
-    path.join(config.folders.dest, 'angular-form-gen/angular-form-gen.min.js'),
+    path.join(config.folders.dest, 'angular-form-gen/angular-form-gen.js'),
     path.join(config.folders.src, 'angular-form-gen/**/*.test.js')
   ])
     .pipe(karma({
@@ -95,7 +95,7 @@ gulp.task('dist-clean', function () {
 
 });
 
-gulp.task('dist', ['dist-clean', 'angular-form-gen', 'test-run'], function () {
+gulp.task('dist', ['dist-clean', 'angular-form-gen'], function () {
 
   var destGlob = path.join(config.folders.dest, 'angular-form-gen/**/*');
   return gulp.src([

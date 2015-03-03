@@ -1,4 +1,5 @@
-<select class="form-control"
+<div ng-if="form.state.active">
+    <select class="form-control"
         fg-selectlist
         fg-field-input
         id="{{ field.$_id }}"
@@ -11,4 +12,8 @@
                 value="{{ option.value }}"
                 ng-selected="form.data[field.schema.name] === option.value">{{ option.text || option.value }}
         </option>
-</select>
+    </select>
+</div>
+<div class="field" ng-if="!form.state.active">
+    {{getOptionText()}}
+</div>

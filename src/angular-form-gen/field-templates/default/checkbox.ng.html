@@ -1,10 +1,15 @@
-<div class="checkbox">
-  <label title="{{ field.schema.tooltip }}">
-    <input fg-field-input
-           id="{{ field.$_id }}"
-           type="checkbox"
-           tabindex="{{ tabIndex }}"
-           ng-model="form.data[field.schema.name]">
-    <span ng-if="field.schema.nolabel">{{ field.schema.displayName }}</span>
-  </label>
+<div ng-if="form.state.active">
+    <div class="checkbox">
+      <label title="{{ field.schema.tooltip }}">
+        <input fg-field-input
+               id="{{ field.$_id }}"
+               type="checkbox"
+               tabindex="{{ tabIndex }}"
+               ng-model="form.data[field.schema.name]">
+        <span ng-if="field.schema.nolabel">{{ field.schema.displayName }}</span>
+      </label>
+    </div>
+</div>
+<div ng-if="!form.state.active">
+    {{form.data[field.schema.name] ? 'Sim' . 'Não'}}
 </div>
