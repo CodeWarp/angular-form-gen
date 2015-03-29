@@ -6,11 +6,11 @@
         title="{{ field.schema.tooltip }}"
         ng-model="form.data[field.schema.name]"
         ng-required="field.schema.validation.required"
-        tabindex="{{ tabIndex }}">
+        tabindex="{{ tabIndex }}"
+        ng-options="option.value as option.text for option in field.schema.options | orderBy:'text'">
 
-        <option ng-repeat="option in field.schema.options"
-                value="{{ option.value }}"
-                ng-selected="form.data[field.schema.name] === option.value">{{ option.text || option.value }}
+        <option value="">
+            {{ field.schema.description || '-- ' + field.schema.displayName + ' --' }}
         </option>
     </select>
 </div>
