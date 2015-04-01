@@ -1,0 +1,23 @@
+<div ng-if="form.state.active">
+    <ui-select
+        fg-field-input
+        multiple
+        ng-model="form.data[field.schema.name]"
+        theme="bootstrap"
+        ng-required="field.schema.validation.required"
+        id="{{ field.$_id }}">
+        <ui-select-match
+            placeholder="{{field.schema.description || field.schema.displayName}}">
+            {{$item.text}}
+        </ui-select-match>
+        <ui-select-choices
+            repeat="option.value as option in field.schema.options | orderBy:'text' | propsFilter: {text: $select.search, value: $select.search}">
+            {{option.text}}
+        </ui-select-choices>
+    </ui-select>
+</div>
+<div class="field" ng-if="!form.state.active">
+    <div ng-repeat="value in form.data[field.schema.name] track by $index">
+        {{getOptionText(value)}}<span ng-show="!$last">, </span>
+    </div>
+</div>

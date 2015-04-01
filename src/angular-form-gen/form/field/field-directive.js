@@ -29,9 +29,13 @@ fg.directive('fgField', function(fgFieldLinkFn) {
 
         fgFieldCtrl.init(fgFormCtrl, $scope.fieldSchema, $scope.editMode);
 
-        $scope.getOptionText = function () {
+        $scope.getOptionText = function (option) {
+            if (option === undefined) {
+                option = $scope.form.data[$scope.field.schema.name];
+            }
+
             return fgUtils.getOptionText(
-                $scope.form.data[$scope.field.schema.name],
+                option,
                 $scope.field.schema.options);
         };
     };

@@ -1,0 +1,17 @@
+<div ng-if="form.state.active">
+    <input
+        fg-field-input
+        type="text"
+        class="form-control"
+        rome-date-field="field.schema.date"
+        title="{{ field.schema.tooltip }}"
+        tabindex="{{ tabIndex }}"
+        id="{{ field.$_id }}"
+        placeholder="{{ field.schema.placeholder }}"
+        ng-model="form.data[field.schema.name]"
+        is-open="field.schema.date.open"
+        ng-required="field.schema.validation.required"/>
+</div>
+<div class="field" ng-if="!form.state.active">
+    {{form.data[field.schema.name]}}
+</div>
