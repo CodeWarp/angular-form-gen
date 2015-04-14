@@ -1,4 +1,6 @@
-<div ng-if="form.state.active">
+<div
+    ng-if="form.state.active"
+    ng-init="form.data[field.schema.name] = {}">
     <div class="row">
         <div class="col-sm-6">
             <div class="input-group">
@@ -8,11 +10,12 @@
                     type="text"
                     class="form-control"
                     rome-date-field="field.schema.date"
+                    rome-date-to="form.data[field.schema.name].to"
                     title="{{ field.schema.tooltip }}"
                     tabindex="{{ tabIndex }}"
                     id="{{ field.$_id }}"
                     placeholder="{{ field.schema.placeholder }}"
-                    ng-model="form.data[field.schema.name]"
+                    ng-model="form.data[field.schema.name].from"
                     is-open="field.schema.date.open"
                     ng-required="field.schema.validation.required"/>
             </div>
@@ -25,11 +28,12 @@
                     type="text"
                     class="form-control"
                     rome-date-field="field.schema.date"
+                    rome-date-from="form.data[field.schema.name].from"
                     title="{{ field.schema.tooltip }}"
                     tabindex="{{ tabIndex }}"
                     id="{{ field.$_id }}"
                     placeholder="{{ field.schema.placeholder }}"
-                    ng-model="form.data[field.schema.name]"
+                    ng-model="form.data[field.schema.name].to"
                     is-open="field.schema.date.open"
                     ng-required="field.schema.validation.required"/>
             </div>
